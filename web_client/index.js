@@ -80,8 +80,7 @@ const trackBytesLoaded = rs => {
 
 const OFFENSIVE_REGEXES = [
     'fuck', 'fucks', 'fucked', 'fucker', 'cum', 'cums', 'nude', 'nudes', 'pussy', 'pussies', 'playboy', 'sex', 'XXX', 'anal', 'rape', 'raped', 'rapes',
-    'glory hole', 'gloryHole', 'porn', 'porns', 'uncensored', 'penis', 'penises', 'dick', 'dicks', 'cock', 'dildo', 'erotic',
-    /*'hentai', moshiboroshihujoshi titles would not offend anyone I think*/
+    'glory hole', 'gloryHole', 'porn', 'porns', 'uncensored', 'penis', 'penises', 'dick', 'dicks', 'cock', 'dildo', 'erotic', 'hentai', 'xxx'
 ].flatMap(word => {
     const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
     const anyCaseRegex = new RegExp('\\b' + escapeRegex(word) + '\\b', 'i');
@@ -171,8 +170,8 @@ const makeTorrentTr = (record) => {
             Dom('a', {'href': 'magnet:?xt=urn:btih:' + infoHash}, [
                 Dom('span', {}, '🧲 '),
             ]),
-            Dom('a', {'href': 'magnet:?xt=urn:btih:' + infoHash}, [
-                Dom('span', {class: 'info-hash-text'}, infoHash),
+            Dom('a', {'href': '/player.html?t=magnet:?xt=urn:btih:' + infoHash}, [
+                Dom('span', {class: 'info-hash-text'}, 'Infohash:' + infoHash),
             ]),
         ]),
         // would be nice to highlight the part of text that was matched
