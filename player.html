@@ -3,28 +3,20 @@
 <head>
   <title>WebTorrent Streaming</title>
 </head>
-<body>
-  <video id="videoPlayer" controls></video>
-
-  <!-- WebTorrent script -->
-  <script src="https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js"></script>
+<body id="main">
+  <video id="video" controls src="magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel"></video>
+  <script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
   <script>
 const urlParams = new URLSearchParams(window.location.search);
-const torrent = urlParams.get('t');
-var client = new WebTorrent();
-
-client.add(torrent, function (torrent) {
-  var file = torrent.files.find(function (file) {
-    return file.name.endsWith('.mp4') || file.name.endsWith('.mov');
-  });
-
-  if (file) {
-    file.appendTo('video#videoPlayer', { autoplay: true });
-  } else {
-    document.write('No video file found in the torrent. Sorry :(');
-  }
-});
+if (urlParams.has("t")) {
+  const torrent = urlParams.get('t');
+var vid = document.getElementById("video")
+vid.setAttribute("src", torrent);
+} else {
+  var img = document.createElement("img");
+img.src = "no-params.png";
+var src = document.getElementById("main");
+src.appendChild(img);}
   </script>
-  It's loading probably, give it a sec
 </body>
 </html>
