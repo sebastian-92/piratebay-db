@@ -171,7 +171,7 @@ const makeTorrentTr = (record) => {
                 Dom('span', {'class': 'info-hash-text'}, "(stream) "),
             ]),
             Dom('a', {
-                'href': '/dl.html?magnet:?xt=urn:btih:' + infoHash,
+                'href': '/dl.html?t=magnet:?xt=urn:btih:' + infoHash,
             }, [
                 Dom('span', {}, '(download as zip)'),
             ])
