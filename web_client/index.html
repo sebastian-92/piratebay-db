@@ -2,99 +2,8 @@
 <html lang="en" style="height: 100%">
 <head>
     <meta charset="UTF-8">
-    <title>TPBDB+</title>
-    <style>body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-    }
-    
-    h1 {
-        color: #007bff;
-    }
-    
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    
-    a:hover {
-        text-decoration: underline;
-    }
-    
-    /* Layout */
-    #video_player_popdown {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-    }
-    
-    #video_player_popdown.video-selected {
-        width: 80%;
-        height: 80%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    #video_player_popdown video {
-        max-width: 100%;
-    }
-    
-    /* Table Styles */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-    
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    
-    th {
-        background-color: #007bff;
-        color: #fff;
-    }
-    
-    tr:hover {
-        background-color: #f5f5f5;
-    }
-    
-    /* Form Styles */
-    form {
-        margin-bottom: 20px;
-    }
-    
-    input[type="text"],
-    input[type="number"],
-    input[type="datetime-local"] {
-        padding: 6px 12px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    
-    button {
-        padding: 6px 12px;
-        font-size: 14px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #0056b3;
-    }</style>
+    <title>TPBDB</title>
+    <link rel="icon" href="assets/favicon_64.png"/>
 </head>
 <body style="height: 100%; margin: 0">
 <div style="display: flex; flex-direction: column; height: 100%">
@@ -113,17 +22,17 @@
     </div>
     <div style="flex: 1; overflow-y:auto">
         <div style="text-align: center">
-            <h1>TPBDB+</h1>
+            <h1>TPBDB+ Client</h1>
             <p>This is a simple page that provides you convenient search access to the static <a href="https://github.com/klesun-misc/piratebay-db-dump">200 MiB CSV</a> list of torrents referenced in this repo</p>
-<p>Modified by cbass92 to provide easy streaming, better filtering, and downloading</p>
+
             <div>
-                <form onsubmit="alert('Please wait for torrent list to load!'); return false;">
+                <form onsubmit="alert('Please wait for torrent list to load! (Would probably be good, but here you are anyway)'); return true;">
                     <div style="margin: 8px">
                         <input type="text" name="nameSubstring" placeholder="type part of file name here..."/>
                         <button class="update-results-btn">Search</button>
                     </div>
                     <div>
-                        <label display="none">
+                        <label style="display: none;">
                             <span>Hide Offensive: </span>
                             <input name="hideOffensiveFlag" type="checkbox" checked="checked"/>
                         </label>
@@ -181,7 +90,7 @@
                     </tr>
                     <tr>
                         <th data-name="addedDt">Added</th>
-                        <th data-name="infohash">download options</th>
+                        <th data-name="infohash">Infohash (Download Link)</th>
                         <th data-name="name">Name</th>
                         <th data-name="size">Size</th>
                         <th data-name="status">Status</th>

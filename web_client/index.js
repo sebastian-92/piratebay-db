@@ -127,9 +127,6 @@ const csvTextPromises = [
     secondPromise.then(() => urlToCsvTextPromise('./../rutracker_2020_09_27/category_37.csv',)),
 ];
 
-// could potentially allow searching without waiting for full data
-// to load... will need to integrate with ReadableStream more tightly then
-
 const fetchedCsvTexts = [];
 csvTextPromises.forEach(promise => promise.then(csvText => {
     document.body.classList.toggle('results-outdated', true);
