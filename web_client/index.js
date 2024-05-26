@@ -168,11 +168,17 @@ const makeTorrentTr = (record) => {
         Dom('td', {'data-name': 'addedDt'}, addedDt),
         Dom('td', {'data-name': 'infohash'}, [
             Dom('a', {'href': 'magnet:?xt=urn:btih:' + infoHash}, [
-                Dom('span', {}, '🧲 '),
+                Dom('span', {}, '(magnet link) '),
             ]),
             Dom('a', {'href': '/player.html?t=magnet:?xt=urn:btih:' + infoHash}, [
-                Dom('span', {class: 'info-hash-text'}, 'Infohash:' + infoHash),
+                Dom('span', {class: 'info-hash-text'}, "(stream) "),
             ]),
+            Dom('a', {
+                'href': 'magnet:?xt=urn:btih:' + infoHash,
+                'download': "true"
+              }, [
+                Dom('span', {}, '(download as zip)'),
+              ]);
         ]),
         // would be nice to highlight the part of text that was matched
         Dom('td', {'data-name': 'name'}, name.split(/ \/ /).join(' /\n ')),

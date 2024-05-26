@@ -2,8 +2,8 @@
 <html lang="en" style="height: 100%">
 <head>
     <meta charset="UTF-8">
-    <title>TPB DB Serverless Client</title>
-    <link rel="icon" href="assets/favicon_64.png"/>
+    <title>TPBDB+</title>
+    <script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
 </head>
 <body style="height: 100%; margin: 0">
 <div style="display: flex; flex-direction: column; height: 100%">
@@ -22,8 +22,9 @@
     </div>
     <div style="flex: 1; overflow-y:auto">
         <div style="text-align: center">
+            <h1>TPBDB+</h1>
             <p>This is a simple page that provides you convenient search access to the static <a href="https://github.com/klesun-misc/piratebay-db-dump">200 MiB CSV</a> list of torrents referenced in this repo</p>
-
+<p>Modified by cbass92 to provide easy streaming, better filtering, and downloading</p>
             <div>
                 <form onsubmit="alert('Please wait for torrent list to load!'); return false;">
                     <div style="margin: 8px">
@@ -89,7 +90,7 @@
                     </tr>
                     <tr>
                         <th data-name="addedDt">Added</th>
-                        <th data-name="infohash">Infohash (Download Link)</th>
+                        <th data-name="infohash">download options</th>
                         <th data-name="name">Name</th>
                         <th data-name="size">Size</th>
                         <th data-name="status">Status</th>
