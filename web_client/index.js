@@ -66,7 +66,7 @@ const trackBytesLoaded = rs => {
                         controller.close();
                     } else {
                         bytesLoaded += value.length;
-                        gui.status_panel.textContent = 'Bytes Loaded: ' + (bytesLoaded / 1024 / 1024).toFixed(3) + ' MiB / ~200 MiB in ' + (Date.now() - csvFetchStartMs) + ' ms';
+                        gui.status_panel.textContent = 'Bytes Loaded: ' + (bytesLoaded / 1024 / 1024).toFixed(3) + ' MiB / ~600 MiB in ' + (Date.now() - csvFetchStartMs) + ' ms';
                         controller.enqueue(value);
                         return pump();
                     }
