@@ -1,0 +1,14 @@
+<div id="download" />
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has("t")) {
+  const torrent = urlParams.get('t');
+    window.webtor = window.webtor || [];
+    window.webtor.push({
+        id: 'download',
+        mode: 'download',
+        magnet: torrent
+    });
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
