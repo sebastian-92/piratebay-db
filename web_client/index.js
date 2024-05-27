@@ -158,24 +158,16 @@ const makeTorrentTr = (record) => {
     });
 
     const streamLink = Dom('a', {
-        'href': 'player.html'
+        'href': '//tpbdb.000.pe/dl.php?infohash=' + infoHash
     }, [
         Dom('span', {'class': 'info-hash-text'}, "(stream here)")
     ]);
 
-    streamLink.addEventListener('click', function(event) {
-        localStorage.setItem("t", "magnet:?xt=urn:btih:" + infoHash);
-    });
-
     const downloadLink = Dom('a', {
-        'href': 'dl.html'
+        'href': '//tpbdb.000.pe/play.php?infohash=' + infoHash
     }, [
         Dom('span', {}, '(download)')
     ]);
-
-    downloadLink.addEventListener('click', function(event) {
-        localStorage.setItem("t", "magnet:?xt=urn:btih:" + infoHash);
-    });
 
     return Dom('tr', {
         class: 'torrent-item-row',
