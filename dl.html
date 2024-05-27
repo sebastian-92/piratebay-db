@@ -1,13 +1,6 @@
-<a id="dl">Please make sure that JavaScript is enabled, or wait just a sec</a>
+<a id="dynamicLink" href="#" download>Please make sure that JavaScript is enabled</a>
 <script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has("t")) {
-	document.getElementById("dl").setAttribute("download")
-	document.getElementById("dl").setAttribute("href", urlParams.get("t"))
-} else {
-  var img = document.createElement("img");
-img.src = "no-params.png";
-var src = document.getElementById("main");
-src.appendChild(img);}
+    var magnetLink =  = localStorage.getItem("t");
+        document.getElementById('dynamicLink').setAttribute('href', magnetLink);
 </script>

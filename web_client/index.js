@@ -77,9 +77,9 @@ const trackBytesLoaded = rs => {
     });
     return new Response(stream);
 };
-
+// shield your eyes kids
 const OFFENSIVE_REGEXES = [
-    'fuck', 'fucks', 'fucked', 'fucker', 'cum', 'cums', 'nude', 'nudes', 'pussy', 'pussies', 'playboy', 'sex', 'XXX', 'anal', 'rape', 'raped', 'rapes', 'glory hole', 'gloryhole', 'porn', 'porns', 'uncensored', 'penis', 'penises', 'dick', 'dicks', 'cock', 'dildo', 'erotic', 'hentai', 'xxx', "adult",   'porn', 'xxx', 'adult', 'erotic', 'sex', 'nude', 'naked', 'explicit', 'uncensored', 'hentai', 'milf', 'anal', 'blowjob', 'orgy', 'gangbang', 'creampie', 'cumshot', 'hardcore', 'fetish', 'bdsm', 'bondage', 'kinky', 'swingers', 'swinger', 'swapping', 'interracial', 'cuckold', 'cuck', 'hotwife', 'amateur', 'homemade', 'casting', 'parody', 'lesbian', 'gay', 'bisexual', 'transgender', 'shemale', 'ladyboy', 'fisting', 'pissing', 'scat', 'watersports', 'golden', 'facial', 'bukkake', 'gangbang', 'dp', 'doublepenetration', 'threesome', 'foursome', 'orgy', 'groupsex', 'swinger', 'wife', 'cheating', 'cuckold', 'hotwife', 'sharing', 'swingers', 'taboo', 'incest', 'family', 'step', 'milf', 'cougar', 'mature', 'granny', 'gilf', 'teen', 'young', 'barely', 'legal', 'lolita', 'schoolgirl', 'cheerleader', 'babysitter', 'nurse', 'maid', 'secretary', 'teacher', 'student', 'coed', 'stripper', 'prostitute', 'escort', 'camgirl', 'webcam', 'livecam', 'pornstar', 'brazzers', 'naughtyamerica', 'bangbros', 'realitykings', 'tiny4k', 'cum', 'jizz', 'load', 'creampie', 'facial', 'tits', 'boobs', 'breasts', 'nipples', 'pussy', 'vagina', 'cunt', 'dick', 'cock', 'penis', 'balls', 'testicles', 'asshole', 'anus', 'butthole', 'fart', 'poop', 'scat', 'fisting', 'prolapse', 'gape', 'nasty', 'dirty', 'kinky', 'fetish', 'bdsm', 'bondage', 'domination', 'submission', 'slave', 'master', 'mistress', 'sadism', 'masochism', 'spanking', 'whipping', 'torture', 'needle', 'piercing', 'cutting', 'blood', 'gore', 'snuff', 'rape', 'forced', 'brutal', 'extreme', 'bizarre', 'nasty', 'dirty', 'kinky', 'fetish'
+    'fuck', 'fucks', 'fucked', 'fucker', 'cum', 'cums', 'nude', 'nudes', 'pussy', 'pussies', 'playboy', 'sex', 'XXX', 'anal', 'rape', 'raped', 'rapes', 'glory hole', 'gloryhole', 'porn', 'porns', 'uncensored', 'penis', 'penises', 'dick', 'dicks', 'cock', 'dildo', 'erotic', 'hentai', 'xxx', "adult",   'porn', 'adult', 'erotic', 'sex', 'nude', 'naked', 'explicit', 'uncensored', 'hentai', 'milf', 'anal', 'blowjob', 'orgy', 'gangbang', 'creampie', 'cumshot', 'hardcore', 'fetish', 'bdsm', 'bondage', 'kinky', 'swingers', 'swinger', 'swapping', 'interracial', 'cuckold', 'cuck', 'hotwife', 'amateur', 'homemade', 'casting', 'lesbian', 'gay', 'bisexual', 'transgender', 'shemale', 'ladyboy', 'fisting', 'pissing', 'scat', 'facial', 'bukkake', 'gangbang', 'dp', 'doublepenetration', 'threesome', 'foursome', 'orgy', 'groupsex', 'swinger', 'wife', 'cheating', 'cuckold', 'hotwife', 'sharing', 'swingers', 'taboo', 'incest', 'family', 'step', 'milf', 'cougar', 'mature', 'granny', 'gilf', 'teen', 'young', 'barely', 'legal', 'lolita', 'schoolgirl', 'cheerleader', 'babysitter', 'nurse', 'maid', 'secretary', 'teacher', 'student', 'coed', 'stripper', 'prostitute', 'escort', 'camgirl', 'webcam', 'livecam', 'pornstar', 'brazzers', 'naughtyamerica', 'bangbros', 'realitykings', 'tiny4k', 'cum', 'jizz', 'load', 'creampie', 'facial', 'tits', 'boobs', 'breasts', 'nipples', 'pussy', 'vagina', 'cunt', 'dick', 'cock', 'penis', 'balls', 'testicles', 'asshole', 'anus', 'butthole', 'fart', 'poop', 'scat', 'fisting', 'prolapse', 'gape', 'nasty', 'dirty', 'kinky', 'fetish', 'bdsm', 'bondage', 'domination', 'submission', 'slave', 'master', 'mistress', 'sadism', 'masochism', 'spanking', 'whipping', 'torture', 'needle', 'piercing', 'cutting', 'blood', 'gore', 'snuff', 'rape', 'forced', 'brutal', 'nasty', 'dirty', 'kinky', 'fetish'
 ].flatMap(word => {
     const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
     const anyCaseRegex = new RegExp(escapeRegex(word), 'i');
@@ -166,14 +166,18 @@ const makeTorrentTr = (record) => {
             Dom('a', {'href': 'magnet:?xt=urn:btih:' + infoHash}, [
                 Dom('span', {}, '(magnet link) '),
             ]),
-            Dom('a', {'href': '/player.html?t=magnet:?xt=urn:btih:' + infoHash}, [
-                Dom('span', {'class': 'info-hash-text'}, "(stream) "),
+Dom('a', {
+    'onclick': 'localStorage.setItem("t", "magnet:?xt=urn:btih:' + infoHash + '")',
+    'href': 'player.html'
+}, [
+                Dom('span', {'class': 'info-hash-text'}, "(stream here)"),
             ]),
-            Dom('a', {
-                'href': '/dl.html?t=magnet:?xt=urn:btih:' + infoHash,
-            }, [
-                Dom('span', {}, '(download as zip)'),
-            ])
+Dom('a', {
+    'onclick': 'localStorage.setItem("t", "magnet:?xt=urn:btih:' + infoHash + '")',
+    'href': 'dl.html'
+}, [
+    Dom('span', {}, '(download)'),
+])
         ]),
         // would be nice to highlight the part of text that was matched
         Dom('td', {'data-name': 'name'}, name.split(/ \/ /).join(' /\n ')),

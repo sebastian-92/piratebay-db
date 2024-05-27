@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>WebTorrent Streaming</title>
-</head>
-<body id="main">
-  <video autoplay id="video" controls src="magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel"></video>
-  <script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
-  <script>
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has("t")) {
-  const torrent = urlParams.get('t');
-var vid = document.getElementById("video")
-vid.setAttribute("src", torrent);
-} else {
-  var img = document.createElement("img");
-img.src = "no-params.png";
-var src = document.getElementById("main");
-src.appendChild(img);}
-  </script>
-</body>
-</html>
+<video id="dynamicLink">Please make sure that JavaScript is enabled</a>
+<script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
+<script>
+    var magnetLink =  = localStorage.getItem("t");
+    document.getElementById('dynamicLink').setAttribute('src', magnetLink);
+</script>
