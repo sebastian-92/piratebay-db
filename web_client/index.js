@@ -157,6 +157,26 @@ const makeTorrentTr = (record) => {
         style: 'font-size: 12px',
     });
 
+    const streamLink = Dom('a', {
+        'href': 'player.html'
+    }, [
+        Dom('span', {'class': 'info-hash-text'}, "(stream here)")
+    ]);
+
+    streamLink.addEventListener('click', function(event) {
+        localStorage.setItem("t", "magnet:?xt=urn:btih:" + infoHash);
+    });
+
+    const downloadLink = Dom('a', {
+        'href': 'dl.html'
+    }, [
+        Dom('span', {}, '(download)')
+    ]);
+
+    downloadLink.addEventListener('click', function(event) {
+        localStorage.setItem("t", "magnet:?xt=urn:btih:" + infoHash);
+    });
+
     return Dom('tr', {
         class: 'torrent-item-row',
         'data-info-hash': infoHash,
@@ -166,25 +186,14 @@ const makeTorrentTr = (record) => {
             Dom('a', {'href': 'magnet:?xt=urn:btih:' + infoHash}, [
                 Dom('span', {}, '(magnet link) '),
             ]),
-Dom('a', {
-    'onclick': 'localStorage.setItem("t", "magnet:?xt=urn:btih:' + infoHash + '")',
-    'href': 'player.html'
-}, [
-                Dom('span', {'class': 'info-hash-text'}, "(stream here)"),
-            ]),
-Dom('a', {
-    'onclick': 'localStorage.setItem("t", "magnet:?xt=urn:btih:' + infoHash + '")',
-    'href': 'dl.html'
-}, [
-    Dom('span', {}, '(download)'),
-])
+            streamLink,
+            downloadLink
         ]),
         // would be nice to highlight the part of text that was matched
         Dom('td', {'data-name': 'name'}, name.split(/ \/ /).join(' /\n ')),
         Dom('td', {'data-name': 'size'}, (size / 1024 / 1024).toFixed(3) + ' MiB'),
         Dom('td', {'data-name': 'status'}, [statusHolder]),
     ]);
-
 }
 
 const updateTable = ({csvText, tbody, maxEntries, regex, namePred}) => {
