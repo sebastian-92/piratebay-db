@@ -158,13 +158,13 @@ const makeTorrentTr = (record) => {
     });
 
     const streamLink = Dom('a', {
-        'href': '//tpbdb.000.pe/dl.php?infohash=' + infoHash
+        'href': '//tpbdb.000.pe/player.php?infohash=' + infoHash
     }, [
         Dom('span', {'class': 'info-hash-text'}, "(stream here)")
     ]);
 
     const downloadLink = Dom('a', {
-        'href': '//tpbdb.000.pe/play.php?infohash=' + infoHash
+        'href': '//tpbdb.000.pe/dl.php?infohash=' + infoHash
     }, [
         Dom('span', {}, '(download)')
     ]);
