@@ -1,3 +1,6 @@
+# tpbdb+ client
+## the online static torrent browser
+## Original Readme
 A CSV file with all torrent infohashes and names from thepiratebay.org on the moment of `2019-Sep-14`. 
 
 You can conveniently browse this database on the [Github Pages of this repo](https://darksun-misc.github.io/piratebay-db-dump/) (do not open with mobile connection, it loads 200 MiB of data!)
