@@ -22,9 +22,10 @@
     </div>
     <div style="flex: 1; overflow-y:auto">
         <div style="text-align: center">
-            <h1>TPBDB+ Client</h1>
-            <p>Welcome to TPBDB+, a clean web client for this <a href="https://github.com/sebastian-92/tpbdb">600 MiB collection of .csvs</a> of torrents from 2019. </p>
-            <p>This site has been forked by Cbass92 to provide online streaming and download support, as well as updated torrenta. Here is the <a href="https://darksun-misc.github.io/piratebay-db-dump/">original site by darksun-misc</a>.</p>
+            <h1>TPBDB</h1>
+            <p>Welcome to TPBDB+, a clean web client for a collection of torrents based on several csvs from the pirate bay, rutracker, and rarbg, totaling over 600 mb, as well as some user content.</p>        
+            <p>This site has been forked by Cbass92 to provide online streaming and download support, as well as updated torrents, and user uploads. Here is the <a href="https://darksun-misc.github.io/piratebay-db-dump/">original site by darksun-misc</a>.</p>
+            <p><a><img src="github-mark.svg" alt="See repo" style="width:42px;height:42px;"></a></p>
             <div>
                 <form onsubmit="alert('Please wait for torrent list to load!'); return fales;">
                     <div style="margin: 8px">
@@ -46,7 +47,7 @@
                             <input type="number" name="maxEntriesPerPage" min="1" max="50000" value="500"/>
                         </label>
                         <label>
-                            <h3><a href = "http://usercontent.tpbdb.000.pe/upload.php">UPLOAD TORRENTS</a></h3>
+                            <h3><a href = "http://usercontent.tpbdb.000.pe/upload.php"><img src="upload.webp" alt="upload" style="width:42px;height:42px;"></a></h3>
                         </label>
                     </div>
                 </form>
@@ -58,7 +59,7 @@
         <div>
             <table style="margin: 0 auto">
                 <thead>
-                    <tr class="filters-row" style="font-size: 8px;">
+                    <tr class="filters-row" style="font-size: 8px; display: none;">
                         <th>
                             <div>
                                 <label>
