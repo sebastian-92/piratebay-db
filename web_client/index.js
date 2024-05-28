@@ -104,6 +104,7 @@ const csvTextPromises = [
     urlToCsvTextPromise('./../random_torrent_contributions.csv'),
     halfPromise,
     secondPromise,
+    secondPromise.then(() => urlToCsvTextPromise('http://usercontent.tpbdb.000.pe/data.csv',)),
     secondPromise.then(() => urlToCsvTextPromise('./../rutracker_2020_09_27/category_2.csv',)),
     secondPromise.then(() => urlToCsvTextPromise('./../rutracker_2020_09_27/category_8.csv',)),
     secondPromise.then(() => urlToCsvTextPromise('./../rutracker_2020_09_27/category_9.csv',)),
