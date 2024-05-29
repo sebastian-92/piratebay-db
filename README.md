@@ -1,5 +1,14 @@
-# tpbdb+ client
-## the online static torrent browser
+# tpbdb
+## the online mostly-static torrent browser
+### about
+This project is a fork of [this one](https://darksun-misc.github.io/piratebay-db-dump/), and beyond what the original had, includes several new features, including:
+- CSS
+- Expanded database of torrents
+- User upload support
+- Webtor download and streaming links using the webtor sdk
+### Upcoming (hopefully) features
+- torrents.csv
+- general improvements
 ## Original Readme
 A CSV file with all torrent infohashes and names from thepiratebay.org on the moment of `2019-Sep-14`. 
 
