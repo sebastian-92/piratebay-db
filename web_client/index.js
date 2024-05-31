@@ -66,7 +66,7 @@ const trackBytesLoaded = rs => {
                         controller.close();
                     } else {
                         bytesLoaded += value.length;
-                        gui.status_panel.textContent = 'Bytes Loaded: ' + (bytesLoaded / 1024 / 1024).toFixed(3) + ' MiB / ~600 MiB in ' + (Date.now() - csvFetchStartMs) + ' ms';
+                        gui.status_panel.textContent = 'Bytes Loaded: ' + (bytesLoaded / 1024 / 1024).toFixed(3) + ' MiB / ~700 MiB in ' + (Date.now() - csvFetchStartMs) + ' ms';
                         controller.enqueue(value);
                         return pump();
                     }
@@ -91,7 +91,7 @@ const isOffensive = (torrentName) => {
     return OFFENSIVE_REGEXES.some(regex => torrentName.match(regex));
 };
 
-gui.status_panel.textContent = 'Retrieving CSV (~200 MiB)...\n';
+gui.status_panel.textContent = 'Retrieving CSV (~700 MiB)...\n';
 
 const urlToCsvTextPromise = url => fetch(url)
     .then(trackBytesLoaded)
@@ -104,6 +104,8 @@ const csvTextPromises = [
     urlToCsvTextPromise('./../random_torrent_contributions.csv'),
     halfPromise,
     secondPromise,
+    secondPromise.then(() => urlToCsvTextPromise('https://tpbdbdata.cbass92.org/torrents-formatted-1.csv')),
+    secondPromise.then(() => urlToCsvTextPromise('https://tpbdbdata.cbass92.org/torrents-formatted-1.csv')),
     secondPromise.then(() => urlToCsvTextPromise('http://usercontent.tpbdb.000.pe/data.csv',)),
     secondPromise.then(() => urlToCsvTextPromise('./../rutracker_2020_09_27/category_2.csv',)),
     secondPromise.then(() => urlToCsvTextPromise('./../rutracker_2020_09_27/category_8.csv',)),
@@ -266,7 +268,6 @@ halfPromise.then(async firstCsvText => {
     };
     // gosh, so much porn, make sure to never allow user to enter less than 3 characters long query
     // upd.: added bad words filtering, results seem to be more or less ok now
-    // nameSubstring = nameSubstring.length >= 3 ? nameSubstring : '264';
     const params = prepareUpdateParams(firstCsvText, 0);
     updateTable(params);
 });
