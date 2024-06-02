@@ -3,7 +3,7 @@
 ### about
 This project is a fork of [this one](https://github.com/darksun-misc/piratebay-db-dump/), and beyond what the original had, includes several new features, including:
 - CSS
-- Expanded database of torrents (including [torrents.csv] (https://torrents-csv.com))
+- Expanded database of torrents (including [torrents.csv](https://torrents-csv.com))
 - User upload support
 - Webtor download and streaming links using the webtor sdk
 ### Upcoming (hopefully) features
